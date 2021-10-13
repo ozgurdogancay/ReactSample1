@@ -1,112 +1,180 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { Text, StyleSheet, View, TextInput, TouchableOpacity, SafeAreaView} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+const ShoppingList = props =>{
+    //yorum
+    
+    return(
+        // <View style={styles.container}>
+        //     <TextInput
+        //         style={styles.textInput}
+        //         placeholder="Yazmaya başlayın..."
+        //         placeholderTextColor="rgba(0,0,0,0.3)"/>
+        //     <TouchableOpacity style={styles.button}>
+        //         <Text>Buraya Dokun</Text>
+        //     </TouchableOpacity>
+        // </View>
+        
+        <SafeAreaView style={styles.safeArea}>
+            <View style={styles.container}>
+                <View style={styles.headerContainer}>
+                    <Text style={styles.headerText}>ALIŞVERİŞ LİSTESİ</Text>
+                </View>
+                <View style={styles.textHolder} >
+                    <TextInput style={styles.textInput}
+                    placeholder="Yazmaya başlayın...">
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+                    </TextInput>
+                </View>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>EKLE</Text>
+                </TouchableOpacity>
+                <Text style={styles.text}>Alınacaklar</Text>
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+                <View style={styles.boxContainer}>
+                    <View style={styles.boxItem}>
+                        {/* kutucuk */}
+                    </View>                          
+                            <Text style={styles.textItem} >Ekmek</Text>                      
+                            <TouchableOpacity>
+                                {/* button */}
+                                <Text style={styles.btnDelete}>Sil</Text>
+                            </TouchableOpacity>
+                </View>
+                <View style={styles.boxContainer}>
+                    <View style={styles.boxItem}>
+                        {/* kutucuk */}
+                    </View>                          
+                            <Text style={styles.textItem} >Süt</Text>                      
+                            <TouchableOpacity>
+                                {/* button */}
+                                <Text style={styles.btnDelete}>Sil</Text>
+                            </TouchableOpacity>
+                </View>
+                <View style={styles.boxContainer}>
+                    <View style={styles.boxItem}>
+                        {/* kutucuk */}
+                    </View>                          
+                            <Text style={styles.textItem} >Elma</Text>                      
+                            <TouchableOpacity>
+                                {/* button */}
+                                <Text style={styles.btnDelete}>Sil</Text>
+                            </TouchableOpacity>
+                </View>
+                
+            </View>
+        </SafeAreaView>
+    );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+    safeArea: {
 
-export default App;
+    },
+    container: {
+        // flex:1,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+    },
+    headerContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding:10,
+        borderWidth:1,
+        borderColor:'grey',
+        
+    },
+    headerText:{
+        color: 'darkorange',    
+        fontWeight: 'bold',
+        fontSize:20,
+        
+
+    },
+    textInput: {
+        width:350,
+        height:40,
+        padding:10,
+        borderWidth:1,
+        borderRadius:5,
+        borderColor:'lightgrey',
+        margin:15,
+        
+    },
+    textHolder:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+    },
+    button: {
+        backgroundColor:'darkorange',
+        padding:5,
+        borderRadius:5,
+        width:350,
+        height:40,
+        margin:15,
+        justifyContent: 'center',
+        alignItems: 'center',    
+    },
+    buttonText:{
+        fontWeight:'bold',
+        fontSize:20,
+        color:'white',
+    },
+    text:{
+        color:'darkorange',
+        fontSize:20,
+        fontWeight:'bold',
+        marginLeft:17,
+    },
+    checkbox:{
+        alignSelf:'center',
+        
+    },
+    label:{
+        margin:8,
+    },
+    view:{
+        width:15,
+        height:15,
+        borderWidth:1,
+        borderRadius:5,
+        borderColor:'grey',
+        
+    },boxContainer:{
+        flexDirection:'row',
+        margin:2,
+    },
+    boxItem:{
+        borderRadius:5,
+        borderColor:'rgba(0,0,0,0.1)',
+        borderWidth:1,
+        //marginRight:5,
+        margin:5,
+        height:20,
+        width:20,
+        //flexGrow:0.1,
+    },
+    textItem:{
+        margin:5,
+        flexGrow:1,
+    },
+    btnDelete:{
+        backgroundColor:'red',
+        width:45,
+        textDecorationColor:'white',
+        color:'white',       
+        borderWidth:2,
+        borderRadius:3,
+        borderColor:'red',
+        textAlign:'center',
+        margin:5,
+        //flexGrow:0.1,
+    }
+
+})
+
+
+export default ShoppingList;
